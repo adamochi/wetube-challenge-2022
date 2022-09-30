@@ -1,0 +1,22 @@
+#join-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #error {
+    font-size: 1.5em;
+    padding: 10px 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    outline: thin solid white;
+    padding: 20px 0;
+    border-radius: 7px;
+    margin-bottom: 50px;
+    width: 90%;
+    max-width: 400px;
+  }
+}

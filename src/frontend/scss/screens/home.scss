@@ -1,0 +1,9 @@
+#home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .to-login-or-join {
+    text-align: right;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,6 @@
+/node_modules
+/src/db.js
+.env
+/uploads
+/upload
+/assets

@@ -1,0 +1,14 @@
+extends base
+
+block potato 
+    header
+        h1 Your .txt file content:
+    if (data)
+        div
+            p=data
+        nav
+            ul 
+                a(href=`/texts`)
+                    li back
+    else 
+        span your .txt will appear here

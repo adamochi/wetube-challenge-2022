@@ -1,0 +1,13 @@
+extends base
+include mixins/video
+
+block potato
+    div#home-page
+        if loggedIn 
+            h3 Welcome back #{user.username}!
+    div#vid-display-outer-div
+        div.videos-display
+            each banana in videos
+                +video(banana)
+            else
+                li sorry, nothing found.

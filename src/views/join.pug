@@ -1,0 +1,21 @@
+extends base
+
+block potato
+    div#join-page
+        if(errorMessage)
+            h2#error=errorMessage
+        form(method="post")
+            input(name="username" type="text" required placeholder="Username" autofocus autocomplete="true")
+            input(name="email" type="email" required placeholder="Email"  autocomplete="true")
+            input(name="password" type="password" required placeholder="Password"  autocomplete="true")
+            input(name="password2" type="password" required placeholder="Re-type Password"  autocomplete="true")
+            input(name="name" type="text" required placeholder="Full Name"  autocomplete="true")
+            button(type="submit") Join
+            br
+            a(href="/users/github/start")
+                span#blue-link Continue with GitHub &rarr;
+        
+        div 
+            span Already have an account? 
+            a(href="/login")
+                span#blue-link Login here &rarr;

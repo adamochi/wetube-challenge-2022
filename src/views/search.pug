@@ -1,0 +1,17 @@
+extends base
+include mixins/video
+
+block potato
+    div#search-page
+        form(method="GET")
+            h2 Enter a keyword
+            input(name="keyword" type="text" autofocus placeholder="Search by title")
+            button(type="submit") Search
+
+        if (videos)
+            div#vid-display-outer-div
+                div.videos-display
+                    each potato in videos
+                        +video(potato)
+        else 
+            h3 No results

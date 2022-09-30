@@ -1,0 +1,18 @@
+extends base
+
+block potato
+    div#login-page
+        if(errorMessage)
+            h2#error=errorMessage
+        form(method="POST")
+            input(type="text" name="username" placeholder="Username" autofocus)
+            input(type="password" name="password" placeholder="Password" autocomplete="false")
+            button(type="submit") Login
+            br
+            a(href="/users/github/start")
+                span#blue-link Continue with GitHub &rarr;
+
+        div 
+            span Don't have an account? 
+            a(href="/join") 
+                span#blue-link Create one here &rarr;s

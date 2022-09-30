@@ -1,0 +1,209 @@
+git init
+// create repository on github first.
+git remote add origin https://github.com/adamochi/wetube-challenge-2022
+
+// Express
+npm i express
+
+// Babel for Node - babel will return old stable javascript.
+npm install --save-dev @babel/core
+
+// devDependencies are what developers need. as opposed to what
+your project needs. babel is so we can write sexy code. --save-dev
+
+create a babel.config.json file and paste the code from the website
+
+npm install @babel/preset-env --save-dev
+// preset env is a smart preset that allows you to use the latest JS
+
+// we are going to use our package.json to run a script that will
+do that babel compiling for us called nodemon
+npm install @babel/core @babel/node --save-dev
+"scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+
+configure server.js
+
+Get Requests and Responses
+
+// Routers
+// organise by domains
+
+this can be a global router
+could put login and join in the user router,
+but doesn't sound good marketing-wise, can make some exceptions to routes
+/home
+/join
+/login
+/search
+
+/users/:id
+/users/logout
+/users/edit-profile -> edit MY profile
+/users/delete-profile -> delete MY profile
+
+/videos/ -> trending
+/videos/:id
+/videos/:id/edit-video
+/videos/:id/delete-video
+/videos/:id/comments
+
+
+
+// PUG
+1. Install PUG
+2. set express view engine to pug. -> app.set("view engine", "pug");
+3. change cwd to use
+src folder -> app.set("views", process.cwd() + "/src/views");
+
+
+// urlEncoded -- middleware. will transform the form into js we can use
+express "extended"
+app.use(express.urlencoded({ extended: true }));
+This makes the form data into something useable
+req.body is the javascript representation of the values in your
+form. wow, that's a very sexy sentance.
+can be accessed because of this middleware! ^^
+
+MongoStore
+npm i connect-mongo
+import MongoStore from "connect-mongo";
+app.use(session({
+  secret: "foo",
+  store: MongoStore.create(options)
+}))
+
+Cookie properties
+1. secret: "a string of text we use to sign the cookie. We want to
+check to see if our backend is the one that gave the cookie.
+2. domain. the domain that created the cookie. youtube cookies go to
+whoever created them.
+3. Expiry. if unspecified, session expires when the browser closes. and
+is called session cookie.
+cookie: {
+  maxAge: 20000, // ms... this will be just 20 seconds. . .
+}
+As early as possible in your application!
+create a .env file and make sure add it to gitignore.
+everything must be uppercase
+npm i dotenv
+require("dotenv").config() // this way requires to be imported 
+at the top of every file...
+import "dotenv/config";
+
+## OAUTH ##
+flow
+1. Users are redirected to request their github identity
+1. users are redirected back to your site by github 
+3. your app accesses the api with  the user's access token
+
+github.com/settings/apps
+https://github.com/login/oauth/authorize?client_id=abcd1234
+&scope=read:user user:email
+it's all based on what's on the url
+
+node-fetch
+
+CONNECTING VIDEO to their owner's ID populate()
+
+webpack
+1. webpack.config.js 
+babel-loader -D
+app.use("/assets", express.static("assets"));
+"scripts": {
+  "dev": "nodemon --exec babel-node src/init.js",
+  "assets": "webpack --config webpack.config.js"
+},
+
+SCSS loader
+npm install sass-loader sass webpack --save-dev
+npm i --save-dev css-loader
+npm i --save-dev style-loader
+
+npm i mini-css-extract-plugin
+const MiniCssExtractPlugin = require"mini-css-extract-plugin");
+// Now I can link to the css files in the pug file 
+
+annoying to be deleting the assets folder and running
+the assets script
+just add watch: true, to the module.exports in webpack
+config
+Just need to get used to running 2 terminals 😅
+npm run assets
+npm run dev
+both need to be running at the same time.
+even the backend will restart when i change js code on
+the frontend. I don't want that.
+clean: true, in the output
+so we need to ignore that
+create nodemon.json with:
+{
+  "ignore": ["webpack.config.js", "src/client/*", "assets/*"],
+  "execMap": "babel-node src/init.js"
+}
+now when run dev, it's just nodemon and it will
+automatically use the nodemon.json for the options
+
+VIDEO PLAYER SETUP
+to prevent multiple files created with same name from webpack..
+since the main.js is being included on every page thanks to the base.pug
+So just need to generate different JS files on different pages since we
+don't need to load the vid player on every page.
+since webpack only has one entry point, just make into object
+entry: {
+  main: "./sdjfoisjdfoisd",
+  videoplayer: "./AAAAAAAAAA"
+}
+
+output: {
+  filename: "js/[name].js",   <<<<<----- this is how to include multiple
+}                                         files without making same name!!!!
+
+
+Time to create an API Router!
+we create a router as usual, but we don't redirect or anything
+we are going to record views
+sending a post without using a form!
+Need to communicate what the id is to the frontend
+we can make data attributes on elements in the backend (PUG)
+using data- for example div#assa(data-id=video._id)
+then on fronted assa.dataset.id
+sendStatus
+ this is just a quiet fetch but later on comments, we will need to render something
+
+ regenerator-runtime seems to not be necessary anymore
+
+
+ FFmpeg
+
+ WebAssembly allows us to run fast code on the frontend
+ without using javascript.
+
+ffmpeg.wasm
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+It is a C program but can be used on the browser!
+This uses the user's computer to process the video.
+
+Why? Because not every browser understands webm
+so need to be mp4
+
+Add this before your routers.
+
+app.use((req, res, next) => {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+});
+
+And add crossorigin to the github avatar in header.pug
+
+if (user.socialOnly)
+  img(src=user.avatarUrl,crossorigin)

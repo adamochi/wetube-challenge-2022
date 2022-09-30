@@ -1,0 +1,39 @@
+header(class="header")
+    div(class="youtube-logo")
+        a(href="/")
+            i.fab.fa-youtube
+                div.logo-bg
+            span WeTube
+    if loggedInUser
+            div.hello-user-navbar
+                span #{user.name}
+                a(href=`/users/${loggedInUser}`)
+                    if (user.socialOnly)
+                        img(src=user.avatarUrl,crossorigin, alt="avatar", width="50px", height="50px")
+                    else
+                        img(src="/" + user.avatarUrl, alt="avatar", width="50px", height="50px")
+    else 
+        div.hello-user-navbar
+
+nav
+    ul            
+        a(href="/search")
+            i.fas.fa-magnifying-glass
+            li Search
+        if loggedIn
+            a(href="/videos/upload")
+                li Upload
+                i.fas.fa-arrow-turn-up
+            a(href=`/users/${loggedInUser}`)
+                i.fas.fa-user-ninja
+                li Profile
+            a(href="/logout")
+                i.fas.fa-arrow-right-from-bracket
+                li Logout
+        else
+            a(href="/login")
+                i.fas.fa-arrow-right-to-bracket
+                li Login
+            a(href="/join")
+                i.fas.fa-user-plus
+                li Join

@@ -1,0 +1,43 @@
+extends base
+include mixins/video
+
+block potato
+    div.profile__page
+        header#profile-header
+            if (loggedIn && thisUser.username === user.username)
+                div.user-profile-pic-div 
+                    if (user.socialOnly)
+                        img(src=user.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
+                    else
+                        img(src="/" + user.avatarUrl, alt="avatar", width="200px", height="auto")
+                div.user-about-div 
+                    h2.user-headers About
+                    h4 Username: #{user.username}
+                    h4 Email: #{user.email}
+                    h2.user-headers Stats
+                    h4 Joined on: #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
+                    h4 Channel Views:
+                    br
+                    a(href=`${loggedInUser}/edit-profile`)
+                        span#blue-link Edit Profile &rarr;
+            else
+                div.user-profile-pic-div
+                    if (thisUser.socialOnly)
+                        img(src=thisUser.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
+                    else
+                        img(src="/" + thisUser.avatarUrl, alt="avatar", width="200px", height="auto")
+                div.user-about-div 
+                    h2.user-headers About
+                    h4 Username: #{thisUser.username}
+                    h4 Email: #{thisUser.email}
+                    h2.user-headers Stats
+                    h4 Joined on: #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
+                    h4 Channel Views:
+                        
+        h3 #{thisUser.username}'s videos
+        div#vid-display-outer-div
+            div.videos-display
+                each potato in videos
+                    +video(potato)
+                else 
+                    small #{thisUser.username} has not uploaded anything

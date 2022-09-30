@@ -1,0 +1,19 @@
+extends base
+
+block potato
+    header 
+        h1 Text to html converter
+        form(method="post", enctype="multipart/form-data")
+            label(for="text") upload .txt file
+            input(type="file", name="text", id="text", accept=".txt", required)
+            button(type="submit") Convert
+    ol
+        if (data)
+            each banana in data
+                a(href=`/texts/${banana}`)
+                    li #{banana.slice(0,10)}. . .
+                a(href=`/texts/${banana}/delete`) 
+                    span Delete 
+                br
+            else
+                span Your uploaded files will appear here

@@ -1,0 +1,75 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  .youtube-logo {
+    display: flex;
+    justify-content: center;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      i {
+        position: relative;
+        font-size: 28px;
+        color: $red;
+        .logo-bg {
+          position: absolute;
+          background-color: white;
+          width: 15px;
+          height: 12px;
+          top: 8px;
+          left: 10px;
+          z-index: -1;
+        }
+      }
+      span {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -2px;
+        transform: scaleY(130%) translateY(-2px);
+      }
+    }
+  }
+  .hello-user-navbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+    img {
+      border-radius: 100vmax;
+    }
+  }
+}
+nav {
+  width: 100%;
+  margin: -40px 0 15px 0;
+  display: flex;
+  justify-content: center;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    min-width: 300px;
+    max-width: 400px;
+    a {
+      filter: brightness(0.8);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &:hover {
+        filter: brightness(1);
+      }
+      &:active {
+        filter: brightness(0.8);
+      }
+    }
+  }
+  @media screen and (max-width: 850px) {
+    margin-top: -5px;
+  }
+}
