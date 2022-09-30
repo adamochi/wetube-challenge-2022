@@ -92,7 +92,7 @@ const mediaKeyParty = (e) => {
       watchPageDIv.requestFullscreen();
       fullscreenBtn.classList = "fas fa-compress";
     } else if (document.webkitIsFullScreen) {
-      video.style.height = "80vh";
+      video.style.height = "600px";
       fullscreenBtn.classList = "fas fa-expand";
       document.exitFullscreen();
     }
@@ -108,7 +108,7 @@ const handleFullscreenBtn = () => {
     fullscreenBtn.classList = "fas fa-compress";
     watchPageDIv.requestFullscreen();
   } else if (document.webkitIsFullScreen) {
-    video.style.height = "80vh";
+    video.style.height = "600px";
     fullscreenBtn.classList = "fas fa-expand";
     document.exitFullscreen();
   }

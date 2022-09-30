@@ -2,6 +2,7 @@ extends base
 include mixins/video
 
 block potato
+    include partials/pageheader
     div.profile__page
         header#profile-header
             if (loggedIn && thisUser.username === user.username)

@@ -11,15 +11,17 @@
     padding-bottom: 40px;
     border-bottom: 3px solid rgb(117, 117, 117);
     .user-profile-pic-div {
+      z-index: 3;
       display: flex;
       justify-content: center;
       height: 250px;
       max-width: 100%;
-      overflow: hidden;
       img {
         max-height: 250px;
         width: auto;
-        border-radius: 10px;
+        max-width: 100%;
+        border-radius: 5px;
+        object-fit: cover;
       }
     }
     .user-about-div {

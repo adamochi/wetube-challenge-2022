@@ -12,14 +12,10 @@ block potato
                 input#timeline(type="range" step="0.1", min ="0")
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
                 i(id="fullscreen" class="fas fa-expand")
-        h2=video.title
-        small Uploaded by 
-            a(href=`/users/${video.owner.username}`)=video.owner.name
-        div 
-            if (!video.owner.socialOnly)
-                img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
-            else 
-                img(src=`${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
+        h1#vid_title=video.title
+        small Uploaded by
+            a(href=`/users/${video.owner.username}`)
+                span#blue-link=video.owner.name
         h4=video.description
             each vagina in video.hashtags
                 li=vagina
@@ -31,5 +27,10 @@ block potato
                             li Edit Details
                         a(href=`${id}/delete`)
                             li Delete
+        div.uploader 
+            if (!video.owner.socialOnly)
+                img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
+            else 
+                img(src=`${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
 block scripts 
     script(src="/assets/js/videoplayer.js")

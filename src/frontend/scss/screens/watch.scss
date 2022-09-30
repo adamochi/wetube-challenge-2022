@@ -2,13 +2,35 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 40px;
+  #vid_title {
+    font-size: 2.2em;
+    text-align: left;
+    width: 80%;
+    margin: 20px auto;
+  }
+  small {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .uploader {
+    width: 80%;
+    margin: 0 auto;
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50vmax;
+    }
+  }
 }
 video {
+  // aspect-ratio: 16/9;
   width: 100%;
-  height: 80vh;
+  height: 600px;
   max-height: 100%;
-  background: black;
+  background: rgb(0, 0, 0);
+  margin: 0 auto;
 }
 
 #play,

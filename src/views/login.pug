@@ -1,6 +1,7 @@
 extends base
 
 block potato
+    include partials/pageheader
     div#login-page
         if(errorMessage)
             h2#error=errorMessage

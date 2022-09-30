@@ -1,7 +1,7 @@
 mixin video(potato)
     div.videos__div
         a(href=`/videos/${potato.id}`)
-            div.image_div
+            div.image_div(style=`background-image:url(${potato.thumbUrl})`)
             h4=potato.title
             h5=potato.description
         if(potato.owner.username)

@@ -43,7 +43,7 @@ export const movieEdit = (req, res) => {
 };
 
 export const postMovie = async (req, res) => {
-  const { path: fileUrl } = req.file;
+  const { video, thumb } = req.files;
   const { _id } = req.session.user;
 
   const { title, description, hashtags } = req.body;
@@ -52,7 +52,8 @@ export const postMovie = async (req, res) => {
       owner: _id,
       title,
       description,
-      fileUrl,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path,
       hashtags: Video.formatHashtags(hashtags),
     });
     const user = await User.findById(_id);
