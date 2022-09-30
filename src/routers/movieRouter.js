@@ -17,7 +17,7 @@ movieRouter
   .route("/upload")
   .all(protectorMiddlleware)
   .get(addMovie)
-  .post(videoUpload.single("video"), postMovie);
+  .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postMovie);
 movieRouter.get("/filter", filterMovie);
 movieRouter.get("/:id([0-9a-f]{24})", movieDetail);
 movieRouter
