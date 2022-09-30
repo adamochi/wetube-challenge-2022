@@ -144,7 +144,7 @@ const handlePictureInPicture = (e) => {
   }
 };
 const handleVideoEnded = () => {
-  console.log(watchPageDIv.dataset.id);
+  // console.log(watchPageDIv.dataset.id);
   const { id } = watchPageDIv.dataset;
   fetch(`/api/videos/${id}/view`, { method: "POST" }); // fetch default is a GET request
 };

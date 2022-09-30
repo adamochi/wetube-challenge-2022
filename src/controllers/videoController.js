@@ -5,7 +5,7 @@ export const trending = async (req, res) => {
     const videos = await Video.find({})
       .populate("owner")
       .sort({ createdAt: "desc" });
-    console.log(videos);
+    // console.log(videos);
     return res
       .status(200)
       .render("home", { pageTitle: "Welcome to Wetube", videos });

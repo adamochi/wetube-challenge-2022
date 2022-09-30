@@ -95,7 +95,7 @@ export const postEditUser = async (req, res) => {
   const pageTitle = "Edit My Profile";
   const { username, name, email } = req.body;
   const { file } = req;
-  console.log(file);
+  // console.log(file);
   const { _id, avatarUrl } = req.session.user;
   if (username !== req.session.user.username) {
     const usernameExists = await User.exists({ username });
@@ -115,9 +115,9 @@ export const postEditUser = async (req, res) => {
       });
     }
   }
-  if (file) {
-    console.log(file.path, "hello");
-  }
+  // if (file) {
+  //   console.log(file.path, "hello");
+  // }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {

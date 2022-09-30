@@ -66,8 +66,6 @@ export const postMovie = async (req, res) => {
 
 export const postEdit = (req, res) => {
   const { id } = req.params;
-  console.log(req.body);
   const vid = getMovieById(id);
-  console.log(req.body);
   return res.redirect(`/movies/${id}`, { pageTitle: `${vid.title}`, id });
 };
