@@ -1,4 +1,5 @@
 import express from "express";
+import flash from "express-flash";
 import morgan from "morgan";
 import session from "express-session";
 import videoRouter from "./routers/videoRouter";
@@ -45,7 +46,7 @@ app.use(
 //   req.session.potato += 1;
 //   return res.send(`${req.session.potato}`);
 // });
-
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));

@@ -207,3 +207,8 @@ And add crossorigin to the github avatar in header.pug
 
 if (user.socialOnly)
   img(src=user.avatarUrl,crossorigin)
+
+
+EXPRESS-FLASH
+after installing express-flash
+there is a function abailable: req.flash( 'type of message' , "message")
