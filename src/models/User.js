@@ -9,6 +9,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String },
   name: { type: String, required: true },
   createdAt: { type: Date, required: true, default: Date.now },
+  comments: [
+    { type: mongoose.Schema.Types.ObjectId, required: true, ref: "comment" },
+  ],
   videos: [
     {
       type: mongoose.Schema.Types.ObjectId,

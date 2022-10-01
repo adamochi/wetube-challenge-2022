@@ -13,21 +13,14 @@ block potato
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
                 i(id="fullscreen" class="fas fa-expand")
         h1#vid_title=video.title
-        small Uploaded by
+        span.uploader-span Uploaded by
             a(href=`/users/${video.owner.username}`)
                 span#blue-link=video.owner.name
-        h4=video.description
-            each vagina in video.hashtags
-                li=vagina
-        if(loggedIn)
-            if (String(video.owner._id) === String(user._id))
-                nav
-                    ul
-                        a(href=`${id}/edit`)
-                            li Edit Details
-                        a(href=`${id}/delete`)
-                            li Delete
-        div.uploader 
+            
+            p.video-description=video.description
+            each hashtagg in video.hashtags
+                li=hashtagg
+            div.uploader 
             if (!video.owner.socialOnly)
                 img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
             else 
