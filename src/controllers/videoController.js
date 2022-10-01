@@ -28,6 +28,10 @@ export const watch = async (req, res) => {
 
 export const editVideo = async (req, res) => {
   const videoId = req.params.id;
+  if (!req.session.user) {
+    req.flash("error", "Login first");
+    return res.redirect("/login");
+  }
   const { _id } = req.session.user;
   const video = await Video.findById(videoId);
   if (!video) {
@@ -48,6 +52,7 @@ export const postEditVideo = async (req, res) => {
       description,
       hashtags: Video.formatHashtags(hashtags),
     });
+    req.flash("info", "Changes saved.");
     res.redirect(`/videos/${id}`);
   } catch (error) {
     console.log(error);

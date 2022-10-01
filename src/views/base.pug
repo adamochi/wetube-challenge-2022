@@ -1,3 +1,5 @@
+include mixins/message
+
 doctype html
 html(lang="en")
     head
@@ -11,10 +13,13 @@ html(lang="en")
         
     body
         include partials/navbar
-        
+        if messages.error
+            +message("error", messages.error)
+        if messages.info
+            +message("info", messages.info)
         block potato
         include partials/footer
     script(src="/assets/js/main.js") 
     block scripts
     //- PUG and Express are configured to be able to access the locals inside response
-    
+    //- and flash gives messages. once.

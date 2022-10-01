@@ -89,10 +89,13 @@ const mediaKeyParty = (e) => {
   if (theKeyPressed === "f") {
     if (!document.webkitIsFullScreen) {
       video.style.height = "100vh";
+      video.style.maxHeight = "100%";
+
       watchPageDIv.requestFullscreen();
       fullscreenBtn.classList = "fas fa-compress";
     } else if (document.webkitIsFullScreen) {
-      video.style.height = "600px";
+      video.style.height = "fit-content";
+      video.style.maxHeight = "600px";
       fullscreenBtn.classList = "fas fa-expand";
       document.exitFullscreen();
     }
@@ -105,10 +108,12 @@ const mediaKeyParty = (e) => {
 const handleFullscreenBtn = () => {
   if (!document.webkitIsFullScreen) {
     video.style.height = "100vh";
+    video.style.maxHeight = "100%";
     fullscreenBtn.classList = "fas fa-compress";
     watchPageDIv.requestFullscreen();
   } else if (document.webkitIsFullScreen) {
-    video.style.height = "600px";
+    video.style.height = "fit-content";
+    video.style.maxheight = "600px";
     fullscreenBtn.classList = "fas fa-expand";
     document.exitFullscreen();
   }
