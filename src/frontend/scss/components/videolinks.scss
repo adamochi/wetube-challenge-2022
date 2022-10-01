@@ -25,19 +25,21 @@
     .videos__div {
       width: 320px;
       max-width: 100%;
-
       display: grid;
       .image_div {
-        transition: 0.3s;
+        transition: 0.05s;
         max-width: 100%;
         height: 180px;
-        background: rgb(69, 87, 107);
+        aspect-ratio: 16/9;
         border-radius: 3px;
         margin-bottom: 5px;
+        background-position: center;
+        background-size: cover;
+
         &:hover {
-          transition: 0.3s;
-          transform: scale(115%);
-          box-shadow: 0 0 10px 10px rgb(43, 177, 255);
+          transition: 0.1s;
+          transform: scale(150%);
+          box-shadow: 0 0 10px 10px rgba(43, 177, 255, 0.75);
         }
       }
       h4 {

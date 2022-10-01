@@ -10,11 +10,11 @@ block potato
             button#download Download Recording
         form(method="POST", enctype="multipart/form-data")
             label(for="video") Video File
-            input(type="file", name="video", id="video", required accept="video/*")
+            input(type="file" name="video" id="video" required accept="video/*")
             label(for="thumb") Thumbnail File
-            input(type="file", name="thumb", id="thumb", required accept="image/*")
-            input(name="title", placeholder="Title", required, autofocus, type="text" minlength=1 maxlength=80)
-            input(name="description", placeholder="Description", required, type="text" minlength=4, maxlength=300)
+            input(type="file" name="thumb" id="thumb" required accept="image/*")
+            input(name="title" placeholder="Title" required type="text" inlength=1 maxlength=80)
+            input(name="description" placeholder="Description" required type="text" minlength=2 maxlength=300)
             input(name="hashtags", placeholder="Hashtags, separated by comma.", required, type="text")
             button(type="submit") Upload
 

@@ -3,6 +3,7 @@ include mixins/video
 
 block potato
     include partials/pageheader
+    
     div.profile__page
         header#profile-header
             if (loggedIn && thisUser.username === user.username)
@@ -38,7 +39,7 @@ block potato
         h3 #{thisUser.username}'s videos
         div#vid-display-outer-div
             div.videos-display
-                each potato in videos
-                    +video(potato)
-                else 
+                each video in videoss
+                    +video(video)
+                else
                     small #{thisUser.username} has not uploaded anything

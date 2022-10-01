@@ -45,15 +45,16 @@ export const movieEdit = (req, res) => {
 export const postMovie = async (req, res) => {
   const { video, thumb } = req.files;
   const { _id } = req.session.user;
-
+  const fileUrl = `${video[0].destination}${video[0].filename}`;
+  const thumbUrl = `${thumb[0].destination}${thumb[0].filename}`;
   const { title, description, hashtags } = req.body;
   try {
     const newVid = await Video.create({
       owner: _id,
       title,
       description,
-      fileUrl: video[0].path,
-      thumbUrl: thumb[0].path,
+      fileUrl,
+      thumbUrl,
       hashtags: Video.formatHashtags(hashtags),
     });
     const user = await User.findById(_id);

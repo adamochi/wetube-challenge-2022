@@ -1,11 +1,11 @@
-mixin video(potato)
+mixin video(banana)
     div.videos__div
-        a(href=`/videos/${potato.id}`)
-            div.image_div(style=`background-image:url(${potato.thumbUrl})`)
-            h4=potato.title
-            h5=potato.description
-        if(potato.owner.username)
+        a(href=`/videos/${banana.id}`)
+            div.image_div(style=`background-image: url(/${banana.thumbUrl})`)
+            h4=banana.title
+            h5=banana.description
+        if(banana.owner.username)
             span Uploaded by
-                a(href=`/users/${potato.owner.username}`) 
-                    span#blue-link #{potato.owner.username}
-        span#views-span #{potato.meta.views} #{potato.meta.views > 1 ? "views" : "view"}
+                a(href=`/users/${banana.owner.username}`) 
+                    span#blue-link #{banana.owner.username}
+        span#views-span #{banana.meta.views} #{banana.meta.views > 1 ? "views" : "view"}

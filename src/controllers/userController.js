@@ -1,5 +1,4 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
 
@@ -77,11 +76,11 @@ export const seeUser = async (req, res) => {
   if (!thisUser) {
     res.status(404).render("404", { pageTitle: "user not found" });
   }
-  const videos = thisUser.videos;
+  const videoss = thisUser.videos;
   res.render("user", {
     pageTitle: `${thisUser.name}'s Profile`,
     thisUser,
-    videos,
+    videoss,
   });
 };
 
@@ -161,6 +160,7 @@ export const postChangePassword = async (req, res) => {
 };
 
 export const logout = (req, res) => {
+  req.flash("info", "Bye Bye");
   req.session.destroy();
   return res.redirect("/");
 };
