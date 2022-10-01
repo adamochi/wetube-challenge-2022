@@ -3,11 +3,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const JS_PATH = "./src/frontend/js/";
 module.exports = {
   entry: {
-    main: "./src/frontend/js/main.js",
-    videoplayer: "./src/frontend/js/videoplayer.js",
-    recorder: "./src/frontend/js/recorder.js",
+    main: JS_PATH + "main.js",
+    videoplayer: JS_PATH + "videoplayer.js",
+    recorder: JS_PATH + "recorder.js",
+    commentSection: JS_PATH + "commentSection.js",
   }, // entry means the source code we want to process
   mode: "development",
   watch: true,

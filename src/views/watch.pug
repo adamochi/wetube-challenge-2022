@@ -25,5 +25,11 @@ block potato
                 img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
             else 
                 img(src=`${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
+
+    div.video_comment-section
+        form.video_comment-form#commentForm
+            textarea(name="comment", cols="30", rows="10", placeholder="Write a comment")
+            button(type="submit") Comment        
 block scripts 
     script(src="/assets/js/videoplayer.js")
+    script(src="/assets/js/commentSection.js") 
