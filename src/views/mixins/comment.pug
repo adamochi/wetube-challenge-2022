@@ -1,4 +1,4 @@
 mixin comment(owner, createdAt, text)
     div.comment-mixin_div
-        span #{owner} #{createdAt}
+        span #{owner} #{createdAt.toDateString()}
         p=text

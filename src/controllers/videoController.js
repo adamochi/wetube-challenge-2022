@@ -1,4 +1,5 @@
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const trending = async (req, res) => {
   try {
@@ -16,9 +17,12 @@ export const trending = async (req, res) => {
 
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id).populate("owner"); // instead of hitting the DB twice!!!!!!!
+  const video = await Video.findById(id).populate("owner").populate("comments");
+
+  // instead of hitting the DB twice!!!!!!!
   // const vidOwner = await User.findById(video.owner);
   // console.log(video);
+  console.log(video);
   res.render("watch", {
     pageTitle: `${video.title}`,
     video,
@@ -88,7 +92,7 @@ export const removeVideo = async (req, res) => {
   try {
     await Video.findByIdAndDelete(id);
   } catch {
-    console.log("i guess i fucked up");
+    console.log("i guess i messed up");
   }
   return res.redirect("/");
 };
@@ -102,4 +106,19 @@ export const registerView = async (req, res) => {
   video.meta.views = video.meta.views + 1;
   await video.save();
   return res.sendStatus(200); // We are not setting a status then rendering. so use sendStatus
+};
+export const createComment = async (req, res) => {
+  const { text } = req.body;
+  const { id } = req.params;
+  const { user } = req.session;
+  const video = await Video.findById(id);
+  if (!video) return res.sendStatus(404);
+  const comment = await Comment.create({
+    text,
+    owner: user._id,
+    video: id,
+  });
+  video.comments.push(comment._id);
+  video.save();
+  return res.sendStatus(201);
 };
