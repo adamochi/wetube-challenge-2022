@@ -10,6 +10,7 @@ const fullscreenBtn = document.getElementById("fullscreen");
 const watchPageDIv = document.getElementById("watch-page-video-div");
 const controllls = document.getElementById("controllls");
 const picInPic = document.getElementById("small-player");
+const input = document.getElementById("comment");
 
 const checkstorage = localStorage.getItem("wetubeVolume");
 if (checkstorage === null || checkstorage === undefined) {
@@ -169,6 +170,18 @@ watchPageDIv.addEventListener("mousemove", handlemouseMove);
 video.addEventListener("mouseleave", handlemouseLeave);
 picInPic.addEventListener("click", handlePictureInPicture);
 video.addEventListener("ended", handleVideoEnded);
+
+const handleKeyStrokeListeners = (e) => {
+  console.dir(e.target);
+  window.removeEventListener("keydown", mediaKeyParty);
+};
+const handleKeyStrokeAddListener = () => {
+  window.addEventListener("keydown", mediaKeyParty);
+};
+if (input) {
+  input.addEventListener("focus", handleKeyStrokeListeners);
+  input.addEventListener("blur", handleKeyStrokeAddListener);
+}
 
 /*
   can make anything fullscreen, any div etc.
