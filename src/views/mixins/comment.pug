@@ -1,4 +1,6 @@
-mixin comment(owner, createdAt, text)
-    div.comment-mixin_div
+mixin comment(owner, createdAt, text, id)
+    div.comment-mixin_div(data-id=id)
         span #{owner} #{createdAt.toDateString()}
         p=text
+    div
+        i.fas.fa-trash-alt

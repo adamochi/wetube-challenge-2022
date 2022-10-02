@@ -29,12 +29,13 @@ block potato
     if loggedIn
         div.video_comment-section
             form.video_comment-form#commentForm
-                textarea(name="comment", cols="30", rows="10", placeholder="Write a comment")
+                input(id="comment" type="text" name="comment" placeholder="Write a comment")
                 button(type="submit") Comment
+    else 
+        span Login to comment
     div.video_comments
-        ul 
-            each item in video.comments
-                +comment(item.owner.username, item.createdAt, item.text)
+        each comment in video.comments
+            +comment(comment.owner.username, comment.createdAt, comment.text, comment.id)
                  
 block scripts 
     script(src="/assets/js/videoplayer.js")

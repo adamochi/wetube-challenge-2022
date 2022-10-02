@@ -90,7 +90,6 @@ const mediaKeyParty = (e) => {
     if (!document.webkitIsFullScreen) {
       video.style.height = "100vh";
       video.style.maxHeight = "100%";
-
       watchPageDIv.requestFullscreen();
       fullscreenBtn.classList = "fas fa-compress";
     } else if (document.webkitIsFullScreen) {
