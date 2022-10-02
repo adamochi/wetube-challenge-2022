@@ -14,18 +14,26 @@ block potato
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
                 i(id="fullscreen" class="fas fa-expand")
         h1#vid_title=video.title
-        span.uploader-span Uploaded by
-            a(href=`/users/${video.owner.username}`)
-                span#blue-link=video.owner.name
-            
-            p.video-description=video.description
-            each hashtagg in video.hashtags
-                li=hashtagg
-            div.uploader 
-            if (!video.owner.socialOnly)
-                img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
-            else 
-                img(src=`${video.owner.avatarUrl}`, alt="avatar", width="100px", height="auto")
+        div.uploader_watch-page
+            span.uploader-span Uploaded by
+                a(href=`/users/${video.owner.username}`)
+                    span#blue-link=video.owner.name
+            div.uploader
+                if (video.owner.socialOnly)
+                    img(src=`${video.owner.avatarUrl}`, crossorigin, alt="avatar", width="100px", height="100px")
+                else 
+                    img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="100px")
+            if(loggedIn)
+            if (String(video.owner._id) === String(user._id))
+                nav
+                    ul
+                        a(href=`${id}/edit`)
+                            li Edit Details
+                        a(href=`${id}/delete`)
+                            li Delete
+        p.video-description=video.description
+        each hashtagg in video.hashtags
+            li=hashtagg
     if loggedIn
         div.video_comment-section
             form.video_comment-form#commentForm
