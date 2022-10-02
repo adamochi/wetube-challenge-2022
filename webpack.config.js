@@ -10,6 +10,7 @@ module.exports = {
     videoplayer: JS_PATH + "videoplayer.js",
     recorder: JS_PATH + "recorder.js",
     commentSection: JS_PATH + "commentSection.js",
+    githubLogin: JS_PATH + "githubLogin.js",
   }, // entry means the source code we want to process
   mode: "development",
   watch: true,

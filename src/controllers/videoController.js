@@ -1,5 +1,6 @@
 import Video from "../models/Video";
 import Comment from "../models/Comment";
+import User from "../models/User";
 
 export const trending = async (req, res) => {
   try {
@@ -22,7 +23,7 @@ export const watch = async (req, res) => {
   // instead of hitting the DB twice!!!!!!!
   // const vidOwner = await User.findById(video.owner);
   // console.log(video);
-  console.log(video);
+  // console.log(video);
   res.render("watch", {
     pageTitle: `${video.title}`,
     video,
@@ -124,6 +125,14 @@ export const createComment = async (req, res) => {
 };
 export const handleRemoveComment = async (req, res) => {
   const { id } = req.body;
-  // const user = req.session.user;
-  console.log(id);
+  const sessionUserId = req.session.user._id;
+  const thisComment = await Comment.findById(id).populate("owner");
+  const commentOwner = await User.findById(thisComment.owner._id);
+  const commentOwnerId = commentOwner._id.valueOf();
+  if (sessionUserId === commentOwnerId) {
+    await Comment.findByIdAndDelete(id);
+    req.flash("info", "Comment Removed");
+  } else {
+    return;
+  }
 };

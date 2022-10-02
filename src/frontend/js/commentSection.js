@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
 const removeComment = async (e) => {
   if (e.target.classList.value === "remove-button") {
     const { id } = e.target.parentElement.dataset;
-    console.log(id);
+    // console.log("comment id:", id);
     await fetch(`/api/videos/${id}/comment`, {
       method: "delete",
       headers: {

@@ -7,5 +7,5 @@ mixin video(banana)
         if(banana.owner.username)
             span Uploaded by
                 a(href=`/users/${banana.owner.username}`) 
-                    span#blue-link #{banana.owner.username}
+                    span.blue-link #{banana.owner.username}
         span#views-span #{banana.meta.views} #{banana.meta.views > 1 ? "views" : "view"}

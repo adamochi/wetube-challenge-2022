@@ -114,9 +114,6 @@ export const postEditUser = async (req, res) => {
       });
     }
   }
-  // if (file) {
-  //   console.log(file.path, "hello");
-  // }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
