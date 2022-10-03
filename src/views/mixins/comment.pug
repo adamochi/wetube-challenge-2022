@@ -1,5 +1,6 @@
 mixin comment(owner, createdAt, text, id)
     div.comment-mixin_div(data-id=id)
-        span #{owner} #{createdAt.toDateString()}
+        span #{owner} #{createdAt.toDateString().substr(4, 11)}
         p=text
-        button.remove-button 🔥
+        if (owner === user.username)
+            button.remove-button 🔥

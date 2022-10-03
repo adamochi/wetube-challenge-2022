@@ -14,23 +14,25 @@ block potato
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
                 i(id="fullscreen" class="fas fa-expand")
         h1#vid_title=video.title
+        span#vid_title__views_span #{video.meta.views} #{video.meta.views > 1 ? "views" : "view"}・#{video.createdAt.toDateString().substr(4, 11)}
         div.uploader_watch-page
-            span.uploader-span Uploaded by
-                a(href=`/users/${video.owner.username}`)
-                    span.blue-link=video.owner.name
             div.uploader
                 if (video.owner.socialOnly)
                     img(src=`${video.owner.avatarUrl}`, crossorigin, alt="avatar", width="100px", height="100px")
                 else 
                     img(src=`/${video.owner.avatarUrl}`, alt="avatar", width="100px", height="100px")
-            if(loggedIn)
-                if (String(video.owner._id) === String(user._id))
-                    nav
-                        ul
+            span.uploader-span
+                a(href=`/users/${video.owner.username}`)
+                    span Uploaded by
+                    span.blue-link=video.owner.name
+                
+                if(loggedIn)
+                    if (String(video.owner._id) === String(user._id))
+                        div.edit-video__delete
                             a(href=`${id}/edit`)
-                                li Edit Details
+                                span Edit Details
                             a(href=`${id}/delete`)
-                                li Delete
+                                span.delete_video Delete🔥
         p.video-description=video.description
         each hashtagg in video.hashtags
             li=hashtagg
@@ -40,7 +42,8 @@ block potato
                 input(id="comment" type="text" name="comment" placeholder="Write a comment")
                 button(type="submit") Comment
     else 
-        span Login to comment
+        span Login to leave a comment
+
     div.video_comments
         each comment in video.comments
             +comment(comment.owner.username, comment.createdAt, comment.text, comment.id)

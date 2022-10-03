@@ -15,6 +15,7 @@ const addComment = (text, id) => {
   p.innerText = text;
   const button = document.createElement("button");
   button.innerText = "🔥";
+  button.className = "remove-button";
   newComment.appendChild(span);
   newComment.appendChild(p);
   newComment.appendChild(button);
@@ -56,6 +57,7 @@ const removeComment = async (e) => {
       },
       body: JSON.stringify({ id }),
     });
+    e.target.parentElement.remove();
   }
 };
 

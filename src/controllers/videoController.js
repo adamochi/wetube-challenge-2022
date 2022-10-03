@@ -18,12 +18,15 @@ export const trending = async (req, res) => {
 
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id).populate("owner").populate("comments");
-
-  // instead of hitting the DB twice!!!!!!!
-  // const vidOwner = await User.findById(video.owner);
-  // console.log(video);
-  // console.log(video);
+  const video = await Video.findById(id)
+    .populate("owner")
+    .populate({
+      path: "comments",
+      populate: {
+        path: "owner",
+      },
+    }); // .populate() instead of hitting the DB twice!!!!!!!
+  // console.log("DEEP POPULATION!!!", video.comments);
   res.render("watch", {
     pageTitle: `${video.title}`,
     video,
@@ -131,8 +134,8 @@ export const handleRemoveComment = async (req, res) => {
   const commentOwnerId = commentOwner._id.valueOf();
   if (sessionUserId === commentOwnerId) {
     await Comment.findByIdAndDelete(id);
-    req.flash("info", "Comment Removed");
+    return res.sendStatus(200);
   } else {
-    return;
+    return res.sendStatus(400);
   }
 };
