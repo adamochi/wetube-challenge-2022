@@ -34,8 +34,9 @@ block potato
                             a(href=`${id}/delete`)
                                 span.delete_video Delete🔥
         p.video-description=video.description
-        each hashtagg in video.hashtags
-            li=hashtagg
+        ul
+            each hashtagg in video.hashtags
+                li=hashtagg
     if loggedIn
         div.video_comment-section
             form.video_comment-form#commentForm

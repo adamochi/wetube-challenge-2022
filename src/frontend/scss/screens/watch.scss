@@ -2,26 +2,27 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
   #vid_title {
     font-size: 2em;
     text-align: left;
-    width: 90%;
+    width: 96%;
     margin: 20px auto;
     margin-bottom: 5px;
   }
   #vid_title__views_span {
-    width: 90%;
+    width: 96%;
     margin: 0 auto 10px;
     font-size: 14px;
     color: rgb(151, 151, 151);
   }
   .uploader_watch-page {
-    width: 90%;
+    width: 96%;
     display: flex;
     align-items: center;
     margin: 0 auto;
-    border-bottom: 1px solid rgb(151, 151, 151);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(151, 151, 151, 0.1);
     padding-bottom: 10px;
     .uploader-span {
       display: flex;
@@ -34,7 +35,7 @@
       a {
         margin-bottom: 5px;
         padding-bottom: 5px;
-        border-bottom: 1px solid rgb(196, 196, 196);
+        border-bottom: 1px solid rgba(151, 151, 151, 0.2);
       }
       span {
         padding: 0 10px 0 0;
@@ -42,8 +43,8 @@
     }
     .uploader {
       img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         object-fit: cover;
         border-radius: 50vmax;
       }
