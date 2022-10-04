@@ -9,7 +9,7 @@
     "build:assets": "webpack --mode=production",
     "build:server": "babel src -d build",
     "dev:server": "nodemon",
-    "dev:assets": "webpack --mode=develpment -w"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
