@@ -4,7 +4,6 @@ import "./mango"; // If you import the file, JavaScript will execute that automa
 import "./models/Video"; // we do this after we import database
 import "./models/User";
 import "./models/Comment";
-import "./favicon.ico";
 import app from "./server";
 
 const PORT = process.env.PORT || 4001;
