@@ -1,0 +1,21 @@
+need to build the src folder with babel cli
+npm install --save-dev @babel/cli
+
+"build:server": "babel src -d build",
+"start": "node build/init.js",
+
+need to teach our code to use async/await
+regeneratorRuntime IS NOT DEFINED
+just need to import "regenerator-runtime";
+at the top of init.js
+(I didn't get this error, I think there must have been an update)
+pug files don't show up? don't need to.
+
+  "scripts": {
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",  <<< build assets and server.
+    "build:assets": "webpack --mode=production",
+    "build:server": "babel src -d build",
+    "dev:server": "nodemon",
+    "dev:assets": "webpack --mode=develpment -w"     <<<< -w for watch: true
+  },

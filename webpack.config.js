@@ -12,8 +12,9 @@ module.exports = {
     commentSection: JS_PATH + "commentSection.js",
     githubLogin: JS_PATH + "githubLogin.js",
   }, // entry means the source code we want to process
-  mode: "development",
-  watch: true,
+  // these 2 configs are now defined in the package.json
+  // mode: "development",
+  // watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",

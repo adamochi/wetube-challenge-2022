@@ -63,7 +63,7 @@ export const postEditVideo = async (req, res) => {
     req.flash("info", "Changes saved.");
     res.redirect(`/videos/${id}`);
   } catch (error) {
-    console.log(error);
+    req.flash("error", error);
     return res.render("404", { pageTitle: error });
   }
 };
