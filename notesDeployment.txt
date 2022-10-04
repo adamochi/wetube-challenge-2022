@@ -31,3 +31,6 @@ pug files don't show up? don't need to.
 
   Heroku settings "Revial Config Vars"
   DB_URL
+
+  listening to the port that heroku will give us
+const PORT = process.env.PORT || 4001;
