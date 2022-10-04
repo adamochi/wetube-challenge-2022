@@ -20,7 +20,7 @@ module.exports = {
       filename: "css/styles.css",
     }),
     new HtmlWebpackPlugin({
-      favicon: "./src/favicon.ico",
+      favicon: "./src/favicon.ico?",
     }),
   ],
   output: {
