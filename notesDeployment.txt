@@ -26,4 +26,8 @@ pug files don't show up? don't need to.
   so all the stuff in the gitignore won't be seen
 
   heroku logs --tail
-  
+
+  create mongodb atlas free forever and connect "native drivers"
+
+  Heroku settings "Revial Config Vars"
+  DB_URL
