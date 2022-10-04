@@ -19,3 +19,11 @@ pug files don't show up? don't need to.
     "dev:server": "nodemon",
     "dev:assets": "webpack --mode=develpment -w"     <<<< -w for watch: true
   },
+
+
+  HEROKU CAN ONLY SEE THE CODE THAT IS IN YOUR GIT HISTORY
+  that means if you don't do git commit, heroku won't know.
+  so all the stuff in the gitignore won't be seen
+
+  heroku logs --tail
+  
