@@ -36,6 +36,8 @@ pug files don't show up? don't need to.
 const PORT = process.env.PORT || 4001;
 
 having trouble with favicon.ico......heroku error h10......pls help
+OK SO THE PROBLEM WAS THAT MORGAN WAS INSTALLED AS A DEV DEPENDENCY.
+
 amazon s3 create bucket
 IAM ->> users ->> add user
 username,,,

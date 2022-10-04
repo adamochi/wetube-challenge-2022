@@ -1,7 +1,7 @@
 // this webpack file can only understand old js.
 // and all the files need to have an entry and an output.
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const JS_PATH = "./src/frontend/js/";
 module.exports = {
@@ -19,9 +19,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
     }),
-    // new HtmlWebpackPlugin({
-    //   favicon: "./src/favicon.ico",
-    // }),
+    new HtmlWebpackPlugin({
+      favicon: "./src/favicon.ico",
+    }),
   ],
   output: {
     filename: "js/[name].js",
