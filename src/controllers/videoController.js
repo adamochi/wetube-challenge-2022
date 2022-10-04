@@ -129,11 +129,18 @@ export const createComment = async (req, res) => {
 export const handleRemoveComment = async (req, res) => {
   const { id } = req.body;
   const sessionUserId = req.session.user._id;
-  const thisComment = await Comment.findById(id).populate("owner");
+  const thisComment = await Comment.findById(id)
+    .populate("owner")
+    .populate("video");
   const commentOwner = await User.findById(thisComment.owner._id);
   const commentOwnerId = commentOwner._id.valueOf();
   if (sessionUserId === commentOwnerId) {
     await Comment.findByIdAndDelete(id);
+    // TRY TO ALSO REMOVE THE OBJECTID FROM THE VIDEO>>>>>
+    console.log(thisComment.video.comments, "COMMENTS<<", id, "ID<<");
+    // await Video.findByIdAndUpdate(thisComment.video, {
+    //   ...(thisComment.video.comments !== id),
+    // });
     return res.sendStatus(200);
   } else {
     return res.sendStatus(400);

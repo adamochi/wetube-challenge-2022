@@ -76,10 +76,16 @@ const vidTime = (e) => {
   const mins = Math.floor(crntTime / 60)
     .toString()
     .padStart(2, "0");
-
   timeline.value = currentTime;
-
   time.innerText = `${mins}:${secs} / ${minsDuration}:${secsDuration}`;
+  for (let e of document.querySelectorAll(
+    'input[type="range"].slider-progress'
+  )) {
+    e.style.setProperty("--value", e.value);
+    e.style.setProperty("--min", e.min == "" ? "0" : e.min);
+    e.style.setProperty("--max", e.max == "" ? "100" : e.max);
+    e.addEventListener("input", () => e.style.setProperty("--value", e.value));
+  }
 };
 const seekVideo = (e) => {
   video.currentTime = e.target.value;
@@ -113,7 +119,7 @@ const handleFullscreenBtn = () => {
     watchPageDIv.requestFullscreen();
   } else if (document.webkitIsFullScreen) {
     video.style.height = "fit-content";
-    video.style.maxheight = "600px";
+    video.style.maxHeight = "600px";
     fullscreenBtn.classList = "fas fa-expand";
     document.exitFullscreen();
   }
@@ -145,6 +151,8 @@ const handlePictureInPicture = (e) => {
   if (document.pictureInPictureElement) {
     document.exitPictureInPicture();
   } else if (document.pictureInPictureEnabled) {
+    video.style.maxHeight = "600px";
+    video.style.height = "fit-content";
     video.requestPictureInPicture();
   }
 };
