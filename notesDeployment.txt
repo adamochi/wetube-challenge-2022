@@ -34,3 +34,20 @@ pug files don't show up? don't need to.
 
   listening to the port that heroku will give us
 const PORT = process.env.PORT || 4001;
+
+having trouble with favicon.ico......heroku error h10......pls help
+amazon s3 create bucket
+IAM ->> users ->> add user
+username,,,
+access type ->> Programmatic access (access key and id) Which means api key.
+create policy ->> DO NOT DO xxxxADMINISTRATOR ACCESS!!xxxx
+just select AmazonS3FullAccess
+AWS_ID
+AWS_SECRET
+
+Multer S3
+storage is going to be different
+
+middlewares:
+import multerS3 from "multer-s3";
+storage: multerS3
