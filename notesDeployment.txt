@@ -48,7 +48,8 @@ AWS_ID
 AWS_SECRET
 
 Multer S3
-storage is going to be different
+we are going to upload to AWS
+storage is going to be different !!imoportant
 
 middlewares:
 import multerS3 from "multer-s3";
