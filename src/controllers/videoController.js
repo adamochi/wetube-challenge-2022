@@ -51,7 +51,7 @@ export const editVideo = async (req, res) => {
     return res.status(403).redirect("/");
   }
 
-  return res.render("edit", { pageTitle: "Edit", video });
+  return res.render("edit", { pageTitle: `Editing ${video.title}`, video });
 };
 export const postEditVideo = async (req, res) => {
   const { id } = req.params;

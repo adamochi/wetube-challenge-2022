@@ -1,8 +1,9 @@
 extends base
 
 block potato
-    header
-        form(method="POST") 
+    include partials/pageheader
+    header#edit_video
+        form.form(method="POST") 
             input(name="title" type="text" value=video.title )
             textarea(name="description", cols="30", rows="10")=video.description
             input(name="hashtags" type="text" value=video.hashtags.join())
