@@ -7,10 +7,9 @@ block potato
     div.profile__page
         header#profile-header
             if (loggedIn && thisUser.username === user.username)
-                div.user-profile-pic-div 
-                    img(src=user.avatarUrl, crossorigin, alt="avatar", width="200px", height="auto")
-                    
-                div.user-about-div 
+                div.user-profile-pic-div
+                    img(src=user.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
+                div.user-about-div
                     h2.user-headers About
                     h4 Username: #{user.username}
                     h4 Email: #{user.email}
@@ -22,9 +21,8 @@ block potato
                         span.blue-link Edit Profile &rarr;
             else
                 div.user-profile-pic-div
-                    img(src=thisUser.avatarUrl, crossorigin, alt="avatar", width="200px", height="auto")
-                    
-                div.user-about-div 
+                    img(src=thisUser.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
+                div.user-about-div
                     h2.user-headers About
                     h4 Username: #{thisUser.username}
                     h4 Email: #{thisUser.email}

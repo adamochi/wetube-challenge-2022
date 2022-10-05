@@ -65,7 +65,7 @@ export const postLogin = async (req, res) => {
     if (user && pass) {
       req.session.loggedIn = true;
       req.session.user = user;
-      console.log(req.session.loggedIn, req.session.user);
+
       return res.redirect(`/users/${username}`);
     } else {
       req.flash("error", "Login error");
