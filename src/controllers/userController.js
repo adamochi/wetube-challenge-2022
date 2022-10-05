@@ -62,9 +62,14 @@ export const postLogin = async (req, res) => {
         errorMessage: "Password doesn't match this username",
       });
     }
-    await (req.session.loggedIn = true);
-    await (req.session.user = user);
-    return res.redirect(`/users/${username}`);
+    if (user && pass) {
+      req.session.loggedIn = true;
+      req.session.user = user;
+      return res.redirect(`/users/${username}`);
+    } else {
+      req.flash("error", "Login error");
+      return res.render("404", { pageTitle: "Something went wrong" });
+    }
   } catch (error) {
     res.render("404", { pageTitle: error._message });
   }
@@ -114,18 +119,23 @@ export const postEditUser = async (req, res) => {
       });
     }
   }
-  const updatedUser = await User.findByIdAndUpdate(
-    _id,
-    {
-      avatarUrl: file ? file.path : avatarUrl,
-      username,
-      name,
-      email,
-    },
-    { new: true } // this is needed!!!!!!!! otherwise updatedUser^^ will still be the old one...
-  );
-  req.session.user = updatedUser;
-  res.redirect(`/users/${username}`);
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      {
+        avatarUrl: file ? file.path : avatarUrl,
+        username,
+        name,
+        email,
+      },
+      { new: true } // this is needed!!!!!!!! otherwise updatedUser^^ will still be the old one...
+    );
+    req.session.user = updatedUser;
+    res.redirect(`/users/${username}`);
+  } catch (err) {
+    req.flash("error", err);
+    return res.status(400).redirect("/");
+  }
 };
 
 export const changePassword = (req, res) => {
@@ -156,10 +166,18 @@ export const postChangePassword = async (req, res) => {
   return res.redirect(`/users/${req.session.user.username}`);
 };
 
-export const logout = (req, res) => {
-  req.flash("info", "Bye Bye");
-  req.session.destroy();
-  return res.redirect("/");
+export const logout = async (req, res) => {
+  req.session.destroy(function (err) {
+    if (err) {
+      req.flash("error", "Something went wrong");
+      console.log(err);
+      return res.status(400).redirect("/");
+    } else {
+      console.log("bye bye");
+      console.log("bye bye");
+      return res.redirect("/login");
+    }
+  });
 };
 
 export const startGithubLogin = (req, res) => {
@@ -181,12 +199,10 @@ export const githubLogin = async (req, res) => {
     client_secret: process.env.GH_SECRET,
     code: req.query.code,
   };
-  const themSearchParametersImLookingForBro = new URLSearchParams(
-    config
-  ).toString();
-  const letsGetBackToBusiness = `${baseURL}?${themSearchParametersImLookingForBro}`;
+  const searchParams = new URLSearchParams(config).toString();
+  const letsGooo = `${baseURL}?${searchParams}`;
   const tokenRequest = await (
-    await fetch(letsGetBackToBusiness, {
+    await fetch(letsGooo, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -229,8 +245,10 @@ export const githubLogin = async (req, res) => {
     }
     req.session.loggedIn = true;
     req.session.user = user;
-    res.redirect(`/users/${user.username}`);
-  } else {
-    return res.redirect("/login");
-  }
+    return res.redirect(`/users/${user.username}`);
+  } else
+    (err) => {
+      req.flash(err);
+      return res.redirect("/login");
+    };
 };
