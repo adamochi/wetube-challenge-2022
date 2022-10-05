@@ -76,3 +76,6 @@ export const uploadFiles = multer({
 });
 
 for aws: the fileUrl,thumbUrl,avatar-->> Change the .path to .location
+
+
+if loggedInUser.avatarUrl.includes("github")

@@ -8,7 +8,10 @@ block potato
         header#profile-header
             if (loggedIn && thisUser.username === user.username)
                 div.user-profile-pic-div
-                    img(src=user.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
+                    if user.avatarUrl.includes("github")
+                        img(src=user.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
+                    else 
+                        img(src=user.avatarUrl crossorigin width="200px" height="auto" alt="avatar")
                 div.user-about-div
                     h2.user-headers About
                     h4 Username: #{user.username}

@@ -1,4 +1,4 @@
-// import "regenerator-runtime";
+import "regenerator-runtime";
 import "dotenv/config";
 import "./mango"; // If you import the file, JavaScript will execute that automatically
 import "./models/Video"; // we do this after we import database

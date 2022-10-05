@@ -1,7 +1,7 @@
 mixin video(banana)
     div.videos__div
         a(href=`/videos/${banana.id}`)
-            div.image_div(style=`background-image: url(/${banana.thumbUrl})`)
+            img( class="thumb_img" src=`${banana.thumbUrl}` crossorigin)
             h4=banana.title
             h5=banana.description
         if(banana.owner.username)

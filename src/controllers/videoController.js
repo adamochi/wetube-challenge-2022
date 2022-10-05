@@ -137,7 +137,7 @@ export const handleRemoveComment = async (req, res) => {
   if (sessionUserId === commentOwnerId) {
     await Comment.findByIdAndDelete(id);
     // TRY TO ALSO REMOVE THE OBJECTID FROM THE VIDEO>>>>>
-    console.log(thisComment.video.comments, "COMMENTS<<", id, "ID<<");
+    // console.log(thisComment.video.comments, "COMMENTS<<", id, "ID<<");
     // await Video.findByIdAndUpdate(thisComment.video, {
     //   ...(thisComment.video.comments !== id),
     // });
