@@ -55,12 +55,9 @@ const localSaveVolume = (e) => {
   localStorage.setItem("wetubeVolume", value);
 };
 
-const handleLoadedMetadata = () => {
+const vidTime = (e) => {
   timeline.max = video.duration;
   timeline.step = video.duration / 1000;
-};
-
-const vidTime = (e) => {
   const { currentTime, duration } = e.target;
   const displayDuration = Math.floor(duration);
   const minsDuration = Math.floor(displayDuration / 60)
@@ -84,7 +81,7 @@ const vidTime = (e) => {
   )) {
     e.style.setProperty("--value", e.value);
     e.style.setProperty("--min", e.min === "" ? "0" : e.min);
-    e.style.setProperty("--max", e.max === "" ? "100" : e.max);
+    e.style.setProperty("--max", e.max === "" ? duration : e.max);
     e.addEventListener("input", () => e.style.setProperty("--value", e.value));
   }
 };
@@ -169,7 +166,6 @@ mute.addEventListener("click", handleMute);
 volume.addEventListener("input", myVolumeChanger);
 volume.addEventListener("change", localSaveVolume);
 video.addEventListener("loadedmetadata", vidTime);
-video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", vidTime);
 window.addEventListener("keydown", mediaKeyParty);
 timeline.addEventListener("input", seekVideo);
