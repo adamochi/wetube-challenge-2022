@@ -11,7 +11,7 @@ block potato
                     if (user.socialOnly)
                         img(src=user.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
                     else
-                        img(src="/" + user.avatarUrl, alt="avatar", width="200px", height="auto")
+                        img(src=user.avatarUrl, alt="avatar", width="200px", height="auto")
                 div.user-about-div 
                     h2.user-headers About
                     h4 Username: #{user.username}
@@ -27,7 +27,7 @@ block potato
                     if (thisUser.socialOnly)
                         img(src=thisUser.avatarUrl,crossorigin, alt="avatar", width="200px", height="auto")
                     else
-                        img(src="/" + thisUser.avatarUrl, alt="avatar", width="200px", height="auto")
+                        img(src=thisUser.avatarUrl, alt="avatar", width="200px", height="auto")
                 div.user-about-div 
                     h2.user-headers About
                     h4 Username: #{thisUser.username}

@@ -65,6 +65,7 @@ export const postLogin = async (req, res) => {
     if (user && pass) {
       req.session.loggedIn = true;
       req.session.user = user;
+      console.log(req.session.loggedIn, req.session.user);
       return res.redirect(`/users/${username}`);
     } else {
       req.flash("error", "Login error");
@@ -123,7 +124,7 @@ export const postEditUser = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       _id,
       {
-        avatarUrl: file ? file.path : avatarUrl,
+        avatarUrl: file ? file.location : avatarUrl,
         username,
         name,
         email,
@@ -245,7 +246,12 @@ export const githubLogin = async (req, res) => {
     }
     req.session.loggedIn = true;
     req.session.user = user;
-    return res.redirect(`/users/${user.username}`);
+    if (req.session.loggedIn === true) {
+      return res.redirect(`/users/${user.username}`);
+    } else {
+      req.flash(err);
+      return res.status(400).redirect("/login");
+    }
   } else
     (err) => {
       req.flash(err);
