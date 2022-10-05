@@ -9,10 +9,7 @@ div.stick_that_nav
                 div.hello-user-navbar
                     span #{user.name}
                     a(href=`/users/${loggedInUser}`)
-                        if (user.socialOnly)
-                            img(src=user.avatarUrl,crossorigin, alt="avatar", width="50px", height="50px")
-                        else
-                            img(src=user.avatarUrl, alt="avatar", width="50px", height="50px")
+                        img(src=user.avatarUrl,crossorigin, alt="avatar", width="50px", height="50px")
         else 
             div.hello-user-navbar
 

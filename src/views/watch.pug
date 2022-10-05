@@ -4,7 +4,7 @@ include mixins/comment
 block potato
     div.watch-page
         div#watch-page-video-div(data-id=video._id)
-            video(src=video.fileUrl, object-fit="contain", preload="metadata")
+            video(src=video.fileUrl,crossorigin, object-fit="contain", preload="metadata")
             div#controllls
                 i(id="play" class="fas fa-play")
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
@@ -17,10 +17,8 @@ block potato
         span#vid_title__views_span #{video.meta.views} #{video.meta.views > 1 ? "views" : "view"}・#{video.createdAt.toDateString().substr(4, 11)}
         div.uploader_watch-page
             div.uploader
-                if (video.owner.socialOnly)
-                    img(src=video.owner.avatarUrl, crossorigin, alt="avatar", width="100px", height="100px")
-                else 
-                    img(src=video.owner.avatarUrl, alt="avatar", width="100px", height="100px")
+                img(src=video.owner.avatarUrl, crossorigin, alt="avatar", width="100px", height="100px")
+                
             span.uploader-span
                 a(href=`/users/${video.owner.username}`)
                     span Uploaded by
