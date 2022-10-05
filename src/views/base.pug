@@ -17,9 +17,11 @@ html(lang="en")
             +message("error", messages.error)
         if messages.info
             +message("info", messages.info)
+        include partials/pleasewait
         block potato
         include partials/footer
     script(src="/assets/js/main.js")
+    script(src="/assets/js/loadingScreen.js")
     block scripts
     //- PUG and Express are configured to be able to access the locals inside response
     //- and flash gives messages. once.

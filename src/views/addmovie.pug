@@ -8,7 +8,7 @@ block potato
             button#previewRecBtn See Preview
             button#startRecBtn Start Recording
             button#download Download Recording
-        form(method="POST", enctype="multipart/form-data")
+        form.form(method="POST", enctype="multipart/form-data")
             label(for="video") Video File
             input(type="file" name="video" id="video" required accept="video/*")
             label(for="thumb") Thumbnail File

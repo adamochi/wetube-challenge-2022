@@ -5,7 +5,7 @@ block potato
     div#profile-page
         if (errorMessage)
             h2#error=errorMessage
-        form(method="POST" enctype="multipart/form-data")
+        form.form(method="POST" enctype="multipart/form-data")
             if (!user.socialOnly)
                 label(for="avatar") Change Avatar 
                 input(type="file" id="avatar" name="avatar" accept="image/*")
@@ -17,4 +17,4 @@ block potato
             input(name="email" type="text" value=`${user.email}`)
             button(type="submit") Update
         a(href="change-password")
-            h4 Change password &rarr;
+            span.blue-link Change password &rarr;

@@ -132,7 +132,7 @@ export const postEditUser = async (req, res) => {
       { new: true } // this is needed!!!!!!!! otherwise updatedUser^^ will still be the old one...
     );
     req.session.user = updatedUser;
-    res.redirect(`/users/${username}`);
+    return res.redirect(`/users/${username}`);
   } catch (err) {
     req.flash("error", err);
     return res.status(400).redirect("/");
@@ -190,7 +190,7 @@ export const startGithubLogin = (req, res) => {
   };
   const potato = new URLSearchParams(config).toString();
   const letsGO = `${baseUrl}?${potato}`;
-  res.redirect(letsGO);
+  return res.redirect(letsGO);
 };
 
 export const githubLogin = async (req, res) => {

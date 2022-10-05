@@ -1,0 +1,18 @@
+.loading_partial {
+  display: none;
+  z-index: 100;
+  position: sticky;
+  justify-content: center;
+  align-items: center;
+  width: 20em;
+  height: 0;
+  left: calc(50% - 10em);
+  top: calc(40% - 100px);
+  box-shadow: 0 0 0 500px rgba(8, 8, 8, 0.774);
+  background: rgba(0, 0, 0, 0.349);
+  h1 {
+    color: rgb(48, 182, 235);
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+}

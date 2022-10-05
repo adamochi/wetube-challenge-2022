@@ -47,9 +47,11 @@ export const editVideo = async (req, res) => {
   }
   // console.log("vid owner", video.owner.toString(), "_id", _id);
   if (video.owner.toString() !== String(_id)) {
+    req.flash("error", "Not authorized");
     return res.status(403).redirect("/");
   }
-  res.render("edit", { pageTitle: "Edit", video });
+
+  return res.render("edit", { pageTitle: "Edit", video });
 };
 export const postEditVideo = async (req, res) => {
   const { id } = req.params;
@@ -61,7 +63,7 @@ export const postEditVideo = async (req, res) => {
       hashtags: Video.formatHashtags(hashtags),
     });
     req.flash("info", "Changes saved.");
-    res.redirect(`/videos/${id}`);
+    return res.redirect(`/videos/${id}`);
   } catch (error) {
     req.flash("error", error);
     return res.render("404", { pageTitle: error });
