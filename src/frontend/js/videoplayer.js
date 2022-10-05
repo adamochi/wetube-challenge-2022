@@ -78,6 +78,7 @@ const vidTime = (e) => {
     .padStart(2, "0");
   timeline.value = currentTime;
   time.innerText = `${mins}:${secs} / ${minsDuration}:${secsDuration}`;
+
   for (let e of document.querySelectorAll(
     'input[type="range"].slider-progress'
   )) {
@@ -87,6 +88,7 @@ const vidTime = (e) => {
     e.addEventListener("input", () => e.style.setProperty("--value", e.value));
   }
 };
+
 const seekVideo = (e) => {
   video.currentTime = e.target.value;
 };

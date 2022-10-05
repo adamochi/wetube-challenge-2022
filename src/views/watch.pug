@@ -4,7 +4,7 @@ include mixins/comment
 block potato
     div.watch-page
         div#watch-page-video-div(data-id=video._id)
-            video(src=video.fileUrl crossorigin object-fit="contain" preload="metadata")
+            video(src=video.fileUrl crossorigin object-fit="contain" autoplay)
             div#controllls
                 i(id="play" class="fas fa-play")
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
