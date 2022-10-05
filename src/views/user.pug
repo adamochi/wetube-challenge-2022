@@ -7,11 +7,9 @@ block potato
     div.profile__page
         header#profile-header
             if (loggedIn && thisUser.username === user.username)
-                div.user-profile-pic-div
-                    if user.avatarUrl.includes("github")
-                        img(src=user.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
-                    else 
-                        img(src=user.avatarUrl crossorigin width="200px" height="auto" alt="avatar")
+                if (user.avatarUrl)
+                    div.user-profile-pic-div
+                        img(src=thisUser.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
                 div.user-about-div
                     h2.user-headers About
                     h4 Username: #{user.username}
@@ -24,7 +22,8 @@ block potato
                         span.blue-link Edit Profile &rarr;
             else
                 div.user-profile-pic-div
-                    img(src=thisUser.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
+                    if (thisUser.avatarUrl)
+                       img(src=thisUser.avatarUrl crossorigin alt="avatar" width="200px" height="auto")
                 div.user-about-div
                     h2.user-headers About
                     h4 Username: #{thisUser.username}
