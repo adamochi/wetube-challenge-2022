@@ -6,4 +6,17 @@
     text-align: right;
     gap: 20px;
   }
+  .latest_div {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 100vmax;
+    #latest_uploads_h1 {
+      font-size: 1.4em;
+      text-align: center;
+      padding: 15px;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 mixin video(banana)
     div.videos__div
         a(href=`/videos/${banana.id}`)
-            img( class="thumb_img" src=`${banana.thumbUrl}` crossorigin)
+            img(loading="lazy" class="thumb_img" src=`${banana.thumbUrl}` crossorigin)
             h4=banana.title
             h5 #{banana.description.substr(0, 30)}#{banana.description.length > 30 ? ". . .": ""}
         if(banana.owner.username)

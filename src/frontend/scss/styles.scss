@@ -38,6 +38,9 @@ a {
   color: rgb(0, 140, 255);
   padding: 5px 10px;
   font-weight: bold;
+  &:hover {
+    filter: brightness(1.2);
+  }
 }
 
 body {

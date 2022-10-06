@@ -160,6 +160,9 @@ const handleVideoEnded = () => {
   const { id } = watchPageDIv.dataset;
   fetch(`/api/videos/${id}/view`, { method: "POST" }); // fetch default is a GET request
 };
+setTimeout(() => {
+  video.play();
+}, 1200);
 
 play.addEventListener("click", handlePlayBtn);
 mute.addEventListener("click", handleMute);

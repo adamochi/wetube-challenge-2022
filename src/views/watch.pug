@@ -4,12 +4,12 @@ include mixins/comment
 block potato
     div.watch-page
         div#watch-page-video-div(data-id=video._id)
-            video(src=video.fileUrl crossorigin object-fit="contain" autoplay)
+            video(src=video.fileUrl crossorigin object-fit="contain")
             div#controllls
                 i(id="play" class="fas fa-play")
                 i(id="small-player" class="fa-solid fa-arrow-up-right-from-square")
                 span#time 00:00/00:00
-                input#timeline(type="range" step="0.1" min ="0" class="styled-slider slider-progress")
+                input#timeline(type="range" step="0.1" min ="0" class="styled-slider slider-progress" value="0")
                 i(id="mute" class="fas fa-volume-up")
                 input(type="range",step="0.001" min="0" max="1" class="styled-slider slider-progress")#volume
                 i(id="fullscreen" class="fas fa-expand")
