@@ -5,6 +5,6 @@ block potato
     header#edit_video
         form.form(method="POST") 
             input(name="title" type="text" value=video.title )
-            textarea(name="description", cols="30", rows="10")=video.description
+            textarea(name="description", cols="30", rows="10" minlength=1)=video.description
             input(name="hashtags" type="text" value=video.hashtags.join())
             button(type="submit") Update

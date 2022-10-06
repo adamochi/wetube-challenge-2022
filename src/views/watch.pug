@@ -19,22 +19,22 @@ block potato
         h1#vid_title=video.title
         span#vid_title__views_span #{video.meta.views} #{video.meta.views > 1 ? "views" : "view"}・#{video.createdAt.toDateString().substr(4, 11)}
         div.uploader_watch-page
-            div.uploader
-                img(src=video.owner.avatarUrl crossorigin alt="avatar" width="100px" height="100px")
-                
-            span.uploader-span
-                a(href=`/users/${video.owner.username}`)
-                    span Uploaded by
-                    span.blue-link=video.owner.name
-                
-                if(loggedIn)
-                    if (String(video.owner._id) === String(user._id))
-                        div.edit-video__delete
-                            a(href=`${id}/edit`)
-                                span Edit Details
-                            a(href=`${id}/delete`)
-                                span.delete_video Delete🔥
-        p.video-description=video.description
+            div.uploadedby_profile-link_image
+                div.uploader
+                    img(src=video.owner.avatarUrl crossorigin alt="avatar" width="100px" height="100px")                    
+                span.uploader-span
+                    a(href=`/users/${video.owner.username}`)
+                        span Uploaded by
+                        span.blue-link=video.owner.name                    
+                    if(loggedIn)
+                        if (String(video.owner._id) === String(user._id))
+                            div.edit-video__delete
+                                a(href=`${id}/edit`)
+                                    span Edit Details
+                                a(href=`${id}/delete`)
+                                    span.delete_video Delete🔥
+            h4.description_header Description
+                p.video-description=video.description
             
     if loggedIn
         div.video_comment-section

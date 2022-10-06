@@ -16,12 +16,12 @@ div.stick_that_nav
     nav
         ul            
             a(href="/search")
-                i.fas.fa-magnifying-glass
+                i.fas.fa-compass
                 li Search
             if loggedIn
                 a(href="/videos/upload")
+                    i.fas.fa-video
                     li Upload
-                    i.fas.fa-arrow-turn-up
                 a(href=`/users/${loggedInUser}`)
                     i.fas.fa-user-ninja
                     li Profile

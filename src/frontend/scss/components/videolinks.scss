@@ -8,30 +8,28 @@
     max-width: 95%;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 15px;
     @media screen and (max-width: 1700px) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    @media screen and (max-width: 1415px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    @media screen and (max-width: 1060px) {
+    @media screen and (max-width: 1415px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
     @media screen and (max-width: 750px) {
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
     .videos__div {
       transition: 0.1s;
-      width: 320px;
+      width: 400px;
       max-width: 100%;
       display: grid;
       &:hover {
         transition: 0.1s;
         // transform: scale(105%);
-        background-color: rgb(140, 185, 245);
-        box-shadow: 0 0 0 5px rgb(140, 185, 245);
+        background-color: rgba(77, 231, 180, 0.705);
+        box-shadow: 0 0 0 5px rgba(77, 231, 180, 0.705);
         outline: none;
         border-radius: 3px;
       }
@@ -39,7 +37,7 @@
         background-color: pink;
         transition: 0.05s;
         max-width: 100%;
-        height: 180px;
+        height: 225px;
         aspect-ratio: 16/9;
         border-radius: 3px;
         margin-bottom: 5px;
@@ -56,18 +54,16 @@
         display: flex;
         align-items: center;
         width: 100%;
-
         justify-content: space-between;
 
         a {
-          // width: 33%;
           display: flex;
           align-items: center;
           justify-content: left;
         }
         #views-span {
           display: flex;
-          // width: 33%;
+          padding-right: 10px;
           z-index: 0;
           text-align: right;
         }

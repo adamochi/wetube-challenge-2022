@@ -25,12 +25,12 @@
     width: 96%;
     margin: 0 auto 10px;
     font-size: 14px;
-    color: rgb(151, 151, 151);
+    color: rgb(99, 99, 99);
   }
   .uploader_watch-page {
     width: 96%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: 0 auto;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(151, 151, 151, 0.1);
@@ -40,7 +40,7 @@
       flex-direction: column;
       min-width: 130px;
       font-size: 14px;
-      font-weight: 100;
+      font-weight: normal;
       padding: 20px 0;
       margin: 10px;
       a {
@@ -52,12 +52,27 @@
         padding: 0 10px 0 0;
       }
     }
-    .uploader {
-      img {
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        border-radius: 50vmax;
+    .uploadedby_profile-link_image {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid rgba(151, 151, 151, 0.1);
+      margin-bottom: 20px;
+      .uploader {
+        img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border-radius: 50vmax;
+        }
+      }
+    }
+    .description_header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(151, 151, 151, 0.1);
+      .video-description {
+        font-weight: normal;
+        padding: 5px 0 0 0;
       }
     }
 
@@ -70,7 +85,7 @@
       align-items: center;
       padding: 0 10px 0 0;
       a {
-        color: rgb(0, 204, 255);
+        color: rgb(0, 110, 255);
         border: none;
       }
       .delete_video {

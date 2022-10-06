@@ -27,16 +27,18 @@
     .user-about-div {
       display: flex;
       flex-direction: column;
+
       .user-headers {
+        background-color: white;
+        border-radius: 10px;
         width: fit-content;
+        max-width: 320px;
         padding: 3px 10px;
-        margin: 10px;
         font-size: 1.5em;
-        border-bottom: 2px solid rgba(187, 187, 187, 0.199);
       }
       h4 {
-        font-size: 1em;
-        padding: 5px;
+        font-size: 0.95em;
+        padding: 4px;
       }
     }
 
