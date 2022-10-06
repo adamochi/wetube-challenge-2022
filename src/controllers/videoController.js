@@ -12,7 +12,7 @@ export const trending = async (req, res) => {
       .status(200)
       .render("home", { pageTitle: "Welcome to Wetube", videos });
   } catch (error) {
-    return res.status(404).render("404", { error });
+    return res.status(404).render("404", { pageTitle: error });
   }
 };
 export const handleGoogle = (req, res) => {

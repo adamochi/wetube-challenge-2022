@@ -72,7 +72,7 @@ export const postLogin = async (req, res) => {
       return res.render("404", { pageTitle: "Something went wrong" });
     }
   } catch (error) {
-    res.render("404", { pageTitle: error._message });
+    return res.render("404", { pageTitle: error._message });
   }
 };
 
@@ -80,7 +80,7 @@ export const seeUser = async (req, res) => {
   const { id } = req.params;
   const thisUser = await User.findOne({ username: id }).populate("videos");
   if (!thisUser) {
-    res.status(404).render("404", { pageTitle: "user not found" });
+    return res.status(404).render("404", { pageTitle: "user not found" });
   }
   const videoss = thisUser.videos;
   res.render("user", {
