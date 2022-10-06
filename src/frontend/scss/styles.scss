@@ -26,11 +26,16 @@ a {
   color: inherit;
   transition: 0.2s;
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
     transition: 0.2s;
   }
   &:active {
-    filter: brightness(0.95);
+    filter: brightness(1);
+  }
+}
+li {
+  &:hover {
+    filter: brightness(1.5);
   }
 }
 .blue-link {

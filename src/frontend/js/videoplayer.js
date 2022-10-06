@@ -146,6 +146,7 @@ const handlemouseLeave = () => {
   }, 1500);
   controlsTimeout = setTimeout(hideControls, 1500);
 };
+
 const handlePictureInPicture = (e) => {
   if (document.pictureInPictureElement) {
     document.exitPictureInPicture();
@@ -160,24 +161,38 @@ const handleVideoEnded = () => {
   const { id } = watchPageDIv.dataset;
   fetch(`/api/videos/${id}/view`, { method: "POST" }); // fetch default is a GET request
 };
-setTimeout(() => {
-  video.play();
-}, 1200);
+if (video) {
+  setTimeout(() => {
+    video.play();
+  }, 1000);
+}
+
+const pInPEnter = () => {
+  picInPic.classList = "fas fa-arrow-up-right-from-square";
+};
+const pInPLeave = () => {
+  picInPic.classList = "fas fa-copy";
+};
+
+picInPic.addEventListener("click", handlePictureInPicture);
+window.addEventListener("enterpictureinpicture", pInPEnter);
+window.addEventListener("leavepictureinpicture", pInPLeave);
 
 play.addEventListener("click", handlePlayBtn);
 mute.addEventListener("click", handleMute);
 volume.addEventListener("input", myVolumeChanger);
 volume.addEventListener("change", localSaveVolume);
+
 video.addEventListener("loadedmetadata", vidTime);
 video.addEventListener("timeupdate", vidTime);
 window.addEventListener("keydown", mediaKeyParty);
 timeline.addEventListener("input", seekVideo);
+
 fullscreenBtn.addEventListener("click", handleFullscreenBtn);
 video.addEventListener("dblclick", handleFullscreenBtn);
 video.addEventListener("click", handlePlayBtn);
 watchPageDIv.addEventListener("mousemove", handlemouseMove);
 video.addEventListener("mouseleave", handlemouseLeave);
-picInPic.addEventListener("click", handlePictureInPicture);
 video.addEventListener("ended", handleVideoEnded);
 
 const handleKeyStrokeListeners = (e) => {
