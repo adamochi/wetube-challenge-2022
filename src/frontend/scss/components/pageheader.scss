@@ -1,9 +1,43 @@
+// @keyframes bgMove {
+//   0% {
+//     background-position: left;
+//   }
+//   50% {
+//     background-position: right;
+//   }
+//   50% {
+//     background-position: left;
+//   }
+//   100% {
+//     background-position: right;
+//   }
+// }
+
 .page__header {
+  // color: $red;
+  // background: linear-gradient(
+  //   90deg,
+  //   white,
+  //   white,
+  //   rgb(144, 32, 178),
+  //   rgb(56, 228, 228),
+  //   pink,
+  //   white,
+  //   white
+  // );
+  // background-size: 2000%;
+  // animation: bgMove 10s infinite;
+  // border-radius: 100vmax;
   font-size: 1.6em;
+  font-weight: bold;
   text-align: center;
-  margin: 40px 0;
-  @media screen and (max-width: 500px) {
-    margin: 100px 0;
+  padding: 40px 50px;
+  width: fit-content;
+  letter-spacing: -1px;
+  margin: 0 auto;
+  @media screen and (max-width: 600px) {
+    padding: 80px 0;
+    width: 90%;
   }
 }
 #footer {

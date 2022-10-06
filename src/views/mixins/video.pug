@@ -3,9 +3,9 @@ mixin video(banana)
         a(href=`/videos/${banana.id}`)
             img( class="thumb_img" src=`${banana.thumbUrl}` crossorigin)
             h4=banana.title
-            h5=banana.description
+            h5 #{banana.description.substr(0, 30)}#{banana.description.length > 30 ? ". . .": ""}
         if(banana.owner.username)
-            span Uploaded by
-                a(href=`/users/${banana.owner.username}`) 
+            span.uploader-span_with-views
+                a(href=`/users/${banana.owner.username}`) Uploaded by
                     span.blue-link #{banana.owner.username}
-        span#views-span #{banana.meta.views} #{banana.meta.views > 1 ? "views" : "view"}
+                span#views-span #{banana.meta.views} #{banana.meta.views > 1 ? "views" : "view"}

@@ -9,7 +9,7 @@
     justify-content: center;
     gap: 20px;
     padding-bottom: 40px;
-    border-bottom: 3px solid rgb(117, 117, 117);
+    border-bottom: 3px solid rgba(48, 177, 252, 0.274);
     .user-profile-pic-div {
       z-index: 1;
       display: flex;
@@ -32,7 +32,7 @@
         padding: 3px 10px;
         margin: 10px;
         font-size: 1.5em;
-        border-bottom: 2px solid rgb(187, 187, 187);
+        border-bottom: 2px solid rgba(187, 187, 187, 0.199);
       }
       h4 {
         font-size: 1em;

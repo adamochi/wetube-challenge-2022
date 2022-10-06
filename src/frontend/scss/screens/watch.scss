@@ -3,6 +3,17 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  .hashtaggs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 96%;
+    margin: 0 auto;
+    color: rgb(94, 164, 255);
+    span {
+      padding: 5px 10px 0 0;
+    }
+  }
   #vid_title {
     font-size: 2em;
     text-align: left;

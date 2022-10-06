@@ -33,17 +33,19 @@ a {
   }
 }
 .blue-link {
+  z-index: 5;
   color: rgb(0, 140, 255);
   padding: 5px 10px;
 }
 
 body {
   position: relative;
+  color: $text;
+  background-color: $bg;
   min-height: 100vh;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: white;
-  background-color: $bg-dark;
+  font-weight: 500;
 }
 button {
   border: none;
@@ -137,17 +139,17 @@ input[type="range"].styled-slider:focus {
 /*webkit*/
 input[type="range"].styled-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 1.2em;
-  height: 1.2em;
-  border-radius: 1.2em;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
   background: $red;
   border: none;
   box-shadow: 0 0 2px black;
-  margin-top: calc(0.7em * 0.5 - 1.2em * 0.5);
+  margin-top: calc(0.5em * 0.5 - 1em * 0.5);
 }
 
 input[type="range"].styled-slider::-webkit-slider-runnable-track {
-  height: 0.7em;
+  height: 0.5em;
   border: none;
   border-radius: 0.4em;
   background: #dbcdd4;
@@ -196,7 +198,7 @@ input[type="range"].styled-slider::-moz-range-thumb {
 }
 
 input[type="range"].styled-slider::-moz-range-track {
-  height: 0.7em;
+  height: 0.5em;
   border: none;
   border-radius: 0.4em;
   background: #ffbddf;
@@ -254,7 +256,7 @@ input[type="range"].styled-slider::-ms-thumb {
 }
 
 input[type="range"].styled-slider::-ms-track {
-  height: 0.7em;
+  height: 0.5em;
   border-radius: 0.4em;
   background: #ffbddf;
   border: none;
@@ -279,7 +281,7 @@ input[type="range"].styled-slider:active::-ms-track {
 }
 
 input[type="range"].styled-slider.slider-progress::-ms-fill-lower {
-  height: 0.7em;
+  height: 0.5em;
   border-radius: 0.4em 0 0 0.4em;
   margin: -undefined 0 -undefined -undefined;
   background: $red;

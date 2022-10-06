@@ -15,8 +15,8 @@ block potato
                     h4 Username: #{user.username}
                     h4 Email: #{user.email}
                     h2.user-headers Stats
-                    h4 Joined on: #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
-                    h4 Channel Views:
+                    h4 Joined on #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
+                    
                     br
                     a(href=`${loggedInUser}/edit-profile`)
                         span.blue-link Edit Profile &rarr;
@@ -29,8 +29,8 @@ block potato
                     h4 Username: #{thisUser.username}
                     h4 Email: #{thisUser.email}
                     h2.user-headers Stats
-                    h4 Joined on: #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
-                    h4 Channel Views:
+                    h4 Joined on #{thisUser.createdAt.toDateString()} at #{thisUser.createdAt.getHours()}:#{thisUser.createdAt.getMinutes().toString().padStart(2, "0")}#{thisUser.createdAt.getHours() > 11 ? "pm" : "am"}
+                    
                         
         h3 #{thisUser.username}'s videos
         div#vid-display-outer-div

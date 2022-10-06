@@ -23,9 +23,18 @@
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
     .videos__div {
+      transition: 0.1s;
       width: 320px;
       max-width: 100%;
       display: grid;
+      &:hover {
+        transition: 0.1s;
+        // transform: scale(105%);
+        background-color: rgb(140, 185, 245);
+        box-shadow: 0 0 0 5px rgb(140, 185, 245);
+        outline: none;
+        border-radius: 3px;
+      }
       .thumb_img {
         background-color: pink;
         transition: 0.05s;
@@ -35,11 +44,6 @@
         border-radius: 3px;
         margin-bottom: 5px;
         object-fit: cover;
-        &:hover {
-          transition: 0.1s;
-          transform: scale(110%);
-          box-shadow: 0 0 10px 10px rgba(43, 177, 255, 0.75);
-        }
       }
       h4 {
         margin-bottom: 5px;
@@ -48,8 +52,25 @@
       h5 {
         margin-bottom: 5px;
       }
-      #views-span {
-        text-align: right;
+      .uploader-span_with-views {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        justify-content: space-between;
+
+        a {
+          // width: 33%;
+          display: flex;
+          align-items: center;
+          justify-content: left;
+        }
+        #views-span {
+          display: flex;
+          // width: 33%;
+          z-index: 0;
+          text-align: right;
+        }
       }
     }
   }

@@ -13,6 +13,9 @@ block potato
                 i(id="mute" class="fas fa-volume-up")
                 input(type="range",step="0.001" min="0" max="1" class="styled-slider slider-progress")#volume
                 i(id="fullscreen" class="fas fa-expand")
+        div.hashtaggs
+            each hashtagg in video.hashtags
+                span=hashtagg
         h1#vid_title=video.title
         span#vid_title__views_span #{video.meta.views} #{video.meta.views > 1 ? "views" : "view"}・#{video.createdAt.toDateString().substr(4, 11)}
         div.uploader_watch-page
@@ -32,9 +35,7 @@ block potato
                             a(href=`${id}/delete`)
                                 span.delete_video Delete🔥
         p.video-description=video.description
-        ul
-            each hashtagg in video.hashtags
-                li=hashtagg
+            
     if loggedIn
         div.video_comment-section
             form.video_comment-form#commentForm
