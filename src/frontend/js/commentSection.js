@@ -9,16 +9,18 @@ const addComment = (text, id) => {
   newComment.dataset.id = id;
   newComment.className = "comment-mixin_div";
   const span = document.createElement("span");
+  const div = document.createElement("div");
   const timeNow = Date.now();
   span.innerText = new Date(timeNow).toDateString();
   const p = document.createElement("p");
   p.innerText = text;
   const button = document.createElement("button");
-  button.innerText = "🔥";
+  button.innerText = "Remove";
   button.className = "remove-button";
-  newComment.appendChild(span);
+  newComment.appendChild(div);
+  div.appendChild(span);
+  div.appendChild(button);
   newComment.appendChild(p);
-  newComment.appendChild(button);
   video_comments.appendChild(newComment);
 };
 
@@ -48,8 +50,7 @@ const handleSubmit = async (e) => {
 };
 const removeComment = async (e) => {
   if (e.target.classList.value === "remove-button") {
-    const { id } = e.target.parentElement.dataset;
-    // console.log("comment id:", id);
+    const { id } = e.target.parentElement.parentElement.dataset;
     await fetch(`/api/videos/${id}/comment`, {
       method: "delete",
       headers: {
@@ -57,7 +58,7 @@ const removeComment = async (e) => {
       },
       body: JSON.stringify({ id }),
     });
-    e.target.parentElement.remove();
+    e.target.parentElement.parentElement.remove();
   }
 };
 

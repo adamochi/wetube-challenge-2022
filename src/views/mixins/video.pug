@@ -8,4 +8,4 @@ mixin video(banana)
             span.uploader-span_with-views
                 a(href=`/users/${banana.owner.username}`) Uploaded by
                     span.blue-link #{banana.owner.username}
-                span#views-span #{banana.meta.views} #{banana.meta.views > 1 ? "views" : "view"}
+                span#views-span #{banana.meta.views} #{banana.meta.views === 1 ? "view" : "views"}

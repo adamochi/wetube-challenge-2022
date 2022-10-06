@@ -19,7 +19,7 @@
     box-sizing: border-box;
     .youtube-logo {
       display: flex;
-      justify-content: center;
+      align-items: center;
       a {
         display: flex;
         align-items: center;
@@ -39,10 +39,11 @@
           }
         }
         span {
+          height: 1.1em;
           font-size: 20px;
           font-weight: 600;
           letter-spacing: -2px;
-          transform: scaleY(130%) translateY(-2px);
+          transform: scaleY(130%);
         }
       }
     }

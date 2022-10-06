@@ -4,6 +4,19 @@ const previewBtn = document.getElementById("previewRecBtn");
 const recordBtn = document.getElementById("startRecBtn");
 const preview = document.getElementById("preview");
 const download = document.getElementById("download");
+const header = document.querySelector(".page__header");
+
+function detectMob() {
+  return window.innerWidth <= 600 || window.innerHeight <= 800;
+}
+const detected = detectMob();
+if (detected) {
+  previewBtn.style.display = "none";
+  recordBtn.style.display = "none";
+  preview.style.display = "none";
+  download.style.display = "none";
+  header.innerText = "Upload a video";
+}
 
 // to use async/await on the frontend, need regenerator
 let stream;
