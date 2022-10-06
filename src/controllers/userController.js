@@ -2,10 +2,6 @@ import User from "../models/User";
 import bcrypt from "bcrypt";
 import fetch from "node-fetch";
 
-export const handleGoogle = (req, res) => {
-  res.sendFile("/src/google99e4017f215aa2bc.html");
-};
-
 export const join = (req, res) => {
   res.render("join", { pageTitle: "Create Account" });
 };

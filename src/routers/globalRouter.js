@@ -5,9 +5,8 @@ import {
   logout,
   postJoin,
   postLogin,
-  handleGoogle,
 } from "../controllers/userController";
-import { trending, search } from "../controllers/videoController";
+import { trending, search, handleGoogle } from "../controllers/videoController";
 import { protectorMiddlleware, publickOnlyMiddleware } from "../middlewares";
 
 const globalRouter = express.Router();

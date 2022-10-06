@@ -15,6 +15,9 @@ export const trending = async (req, res) => {
     return res.status(404).render("404", { error });
   }
 };
+export const handleGoogle = (req, res) => {
+  res.sendFile(process.cwd() + "/src/google99e4017f215aa2bc.html");
+};
 
 export const watch = async (req, res) => {
   const { id } = req.params;
