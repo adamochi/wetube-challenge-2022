@@ -121,10 +121,12 @@ export const postEditUser = async (req, res) => {
     }
   }
   try {
+    // const isHeroku = process.env.NODE_ENV === "production";
     const updatedUser = await User.findByIdAndUpdate(
       _id,
       {
         avatarUrl: file ? file.location : avatarUrl,
+        // avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
         username,
         name,
         email,
@@ -132,6 +134,8 @@ export const postEditUser = async (req, res) => {
       { new: true } // this is needed!!!!!!!! otherwise updatedUser^^ will still be the old one...
     );
     req.session.user = updatedUser;
+    console.log(req.session.user, "SESSION USER");
+    console.log(updatedUser, "UPDATED USERRRRRR");
     return res.redirect(`/users/${username}`);
   } catch (err) {
     req.flash("error", err);

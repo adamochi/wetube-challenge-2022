@@ -45,10 +45,19 @@ export const movieEdit = (req, res) => {
 export const postMovie = async (req, res) => {
   const { video, thumb } = req.files;
   const { _id } = req.session.user;
+  const isHeroku = process.env.NODE_ENV === "production";
   // const fileUrl = `${video[0].destination}${video[0].filename}`;
   // const thumbUrl = `${thumb[0].destination}${thumb[0].filename}`;
   const fileUrl = video[0].location;
   const thumbUrl = thumb[0].location;
+  /*   
+  const fileUrl = isHeroku
+    ? video[0].location
+    : `${video[0].destination}${video[0].filename}`;
+  const thumbUrl = isHeroku
+    ? thumb[0].location
+    : `${thumb[0].destination}${thumb[0].filename}`;
+  */
   const { title, description, hashtags } = req.body;
   try {
     const newVid = await Video.create({
