@@ -5,6 +5,7 @@ import {
   logout,
   postJoin,
   postLogin,
+  handleGoogle,
 } from "../controllers/userController";
 import { trending, search } from "../controllers/videoController";
 import { protectorMiddlleware, publickOnlyMiddleware } from "../middlewares";
@@ -12,6 +13,7 @@ import { protectorMiddlleware, publickOnlyMiddleware } from "../middlewares";
 const globalRouter = express.Router();
 
 globalRouter.get("/", trending);
+globalRouter.get("/google99e4017f215aa2bc.html", handleGoogle);
 globalRouter.route("/join").all(publickOnlyMiddleware).get(join).post(postJoin);
 globalRouter
   .route("/login")

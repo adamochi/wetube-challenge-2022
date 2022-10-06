@@ -16,7 +16,6 @@ const app = express();
 
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
-
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -56,6 +55,7 @@ app.use((req, res, next) => {
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   next();
 });
+app.use(express.static("public"));
 app.use("/", globalRouter);
 app.use("/texts", textRouter);
 app.use("/users", userRouter);
