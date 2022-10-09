@@ -11,6 +11,7 @@ module.exports = {
     recorder: JS_PATH + "recorder.js",
     commentSection: JS_PATH + "commentSection.js",
     loadingScreen: JS_PATH + "loadingScreen.js",
+    sidebar: JS_PATH + "sidebar.js",
   }, // entry means the source code we want to process
   // these 2 configs are now defined in the package.json
   // mode: "development",

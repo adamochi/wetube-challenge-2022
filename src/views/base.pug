@@ -14,6 +14,7 @@ html(lang="en")
         
     body
         include partials/navbar
+        include partials/sidebar
         if messages.error
             +message("error", messages.error)
         if messages.info
@@ -23,6 +24,7 @@ html(lang="en")
         include partials/footer
     script(src="/assets/js/main.js")
     script(src="/assets/js/loadingScreen.js")
+    script(src="/assets/js/sidebar.js")
     block scripts
     //- PUG and Express are configured to be able to access the locals inside response
     //- and flash gives messages. once.

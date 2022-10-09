@@ -1,0 +1,31 @@
+div.burger#burger
+    i.fas.fa-bars
+div.sidebar_nav#sidebar
+    nav
+        ul            
+            a(href="/search")
+                i.fas.fa-compass
+                li Search
+            if loggedIn
+                a(href="/videos/upload")
+                    i.fas.fa-video
+                    li Upload
+                a(href=`/users/${loggedInUser}`)
+                    i.fas.fa-user-ninja
+                    li Profile
+                a(href="/logout")
+                    i.fas.fa-arrow-right-from-bracket
+                    li Logout
+            else
+                a(href="/login")
+                    i.fas.fa-arrow-right-to-bracket
+                    li Login
+                a(href="/join")
+                    i.fas.fa-user-plus
+                    li Join
+            a(href="https://github.com/adamochi/wetube-challenge-2022" target="_blank" rel="noreferrer" )
+                i.fas.fa-laptop-code
+                li Source
+            a(href="https://adam-sullivan.netlify.app/" target="_blank" rel="noopener")
+                i.fas.fa-earth-oceania
+                li Adam's website
